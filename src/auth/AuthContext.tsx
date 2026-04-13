@@ -247,6 +247,6 @@ export function useAuth(): AuthContextValue {
 
 export function graphAccessSummary(principal: Principal): string {
   if (principal.role === "anonymous") return "Anonymous public access";
-  if (principal.role === "member") return "Signed in with public graph access";
+  if (principal.role === "member") return "Signed in with public map access";
   return `${principal.role} access to ${principal.granted_graphs.map(getGraphLabel).join(", ")}`;
 }

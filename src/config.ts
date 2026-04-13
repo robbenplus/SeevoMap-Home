@@ -15,7 +15,7 @@ export const HF_OAUTH_AUTHORIZE_URL = "https://huggingface.co/oauth/authorize";
 export const HF_OAUTH_TOKEN_URL = "https://huggingface.co/oauth/token";
 
 export function getGraphLabel(graphId: string): string {
-  if (graphId === DEFAULT_GRAPH_ID) return "Public Graph";
-  if (graphId === LAB_GRAPH_ID) return "Lab Graph";
-  return graphId || "Unknown Graph";
+  if (graphId === DEFAULT_GRAPH_ID) return "Public Map";
+  if (graphId === LAB_GRAPH_ID) return "Lab Map";
+  return graphId || "Unknown Map";
 }

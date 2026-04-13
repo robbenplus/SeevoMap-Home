@@ -47,11 +47,11 @@ export default function AccountPage() {
           </p>
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl font-bold text-text-primary mb-4">
-              SeevoMap account and graph access
+              SeevoMap account and map access
             </h1>
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
               Keep one public entrypoint, sign in with Hugging Face, and switch
-              into higher-tier graphs only when your role allows it.
+              into higher-tier maps only when your role allows it.
             </p>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function AccountPage() {
                   </div>
                   <div className="surface-note rounded-2xl p-4">
                     <p className="text-[11px] uppercase tracking-[0.14em] text-text-muted mb-2">
-                      Active graph
+                      Active map
                     </p>
                     <p className="text-lg font-semibold text-text-primary">
                       {getGraphLabel(selectedGraph.graph_id)}
@@ -106,7 +106,7 @@ export default function AccountPage() {
             ) : (
               <div className="space-y-4">
                 <p className="text-text-secondary text-sm leading-relaxed">
-                  You are browsing anonymously. Public graph routes stay open by
+                  You are browsing anonymously. Public map routes stay open by
                   default, and signing in only adds account state plus access
                   upgrade paths.
                 </p>
@@ -129,7 +129,7 @@ export default function AccountPage() {
 
           <section className="surface-card section-tone-sage rounded-3xl p-6">
             <p className="text-text-muted text-xs uppercase tracking-[0.14em] mb-3">
-              Graph grants
+              Map grants
             </p>
             <div className="space-y-3">
               {principal.granted_graphs.map((graphId) => (
@@ -157,7 +157,7 @@ export default function AccountPage() {
           </p>
           {principal.role === "lab" || principal.role === "maintainer" ? (
             <p className="text-text-secondary text-sm leading-relaxed">
-              Your role already includes {getGraphLabel("lab")}. Use the graph
+              Your role already includes {getGraphLabel("lab")}. Use the map
               selector in the navbar to switch views explicitly.
             </p>
           ) : pendingRequest ? (
@@ -167,8 +167,8 @@ export default function AccountPage() {
           ) : canRequestLab ? (
             <div className="space-y-4">
               <p className="text-text-secondary text-sm leading-relaxed">
-                Lab graph access stays gated. Request it when you need the
-                private research layer rather than the public community graph.
+                Lab map access stays gated. Request it when you need the
+                private research layer rather than the public community map.
               </p>
               <button
                 type="button"

@@ -6,7 +6,7 @@ import type { ThemeMode } from "../utils/theme";
 import GraphSelector from "./GraphSelector";
 
 const NAV_LINKS = [
-  { to: "/graph", label: "Graph" },
+  { to: "/graph", label: "Map" },
   { to: "/search", label: "Market" },
   { to: "/leaderboard", label: "Leaderboard" },
   { to: "/docs", label: "Docs" },
@@ -68,9 +68,13 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
                 onChange={setSelectedGraphId}
               />
             ) : (
-              <span className="hidden lg:inline-flex rounded-xl border border-border-subtle px-3 py-2 text-sm text-text-secondary">
+              <Link
+                to="/graph"
+                className="hidden lg:inline-flex rounded-xl border border-border-subtle px-3 py-2 text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary surface-hover"
+                title="Open map view"
+              >
                 {getGraphLabel(selectedGraphId)}
-              </span>
+              </Link>
             )}
             {isAuthenticated ? (
               <Link
@@ -162,9 +166,13 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
                 />
               </div>
             ) : (
-              <div className="px-3 py-2 text-sm text-text-secondary">
+              <Link
+                to="/graph"
+                onClick={() => setMobileOpen(false)}
+                className="block px-3 py-2 rounded-lg text-sm text-text-secondary hover:text-text-primary surface-hover"
+              >
                 {getGraphLabel(selectedGraphId)}
-              </div>
+              </Link>
             )}
             {isAuthenticated ? (
               <Link

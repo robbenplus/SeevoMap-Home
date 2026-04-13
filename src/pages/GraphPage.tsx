@@ -198,7 +198,7 @@ export default function GraphPage() {
 
         <div className="graph-ui-panel rounded-full px-4 py-2.5">
           <p className="text-[11px] uppercase tracking-[0.14em] text-text-muted mb-1">
-            Active Graph
+            Active Map
           </p>
           <div className="text-sm font-medium text-text-primary">
             {getGraphLabel(selectedGraphId)}
