@@ -1,5 +1,5 @@
 {
-  "client_id": "https://internscience.github.io/SeevoMap-Home/.well-known/oauth-cimd",
+  "client_id": "https://internscience.github.io/SeevoMap-Home/.well-known/oauth-cimd.json",
   "client_name": "SeevoMap",
   "redirect_uris": [
     "https://internscience.github.io/SeevoMap-Home/oauth/callback/huggingface/",

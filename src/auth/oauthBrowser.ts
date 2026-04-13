@@ -1,6 +1,6 @@
 export const WEBSITE_SIGN_IN_CLIENT_ID_ENV = "VITE_SEEVOMAP_HF_CLIENT_ID";
 export const SEEVOMAP_DEFAULT_OAUTH_CLIENT_ID =
-  "https://internscience.github.io/SeevoMap-Home/.well-known/oauth-cimd";
+  "https://internscience.github.io/SeevoMap-Home/.well-known/oauth-cimd.json";
 export const WEBSITE_OAUTH_CALLBACK_PATH = "/oauth/callback/huggingface/";
 export const APP_AUTH_CALLBACK_HASH_ROUTE = "/auth/callback";
 

@@ -5,6 +5,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type PropsWithChildren,
 } from "react";
@@ -101,6 +102,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const [selectedGraphId, setSelectedGraphIdState] = useState(DEFAULT_GRAPH_ID);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const completeSignInPromiseRef = useRef<Promise<string> | null>(null);
   const canSignIn = isWebsiteSignInConfigured(HF_OAUTH_CLIENT_ID);
   const signInConfigurationMessage = getWebsiteSignInConfigurationMessage(
     HF_OAUTH_CLIENT_ID,
@@ -159,10 +161,24 @@ export function AuthProvider({ children }: PropsWithChildren) {
     await startHfLogin(nextPath);
   }, [canSignIn, signInConfigurationMessage]);
 
-  const completeSignIn = useCallback(async () => {
-    const { accessToken: freshToken, returnPath } = await finishHfLogin();
-    await refreshSession(freshToken);
-    return returnPath;
+  const completeSignIn = useCallback(() => {
+    const inFlight = completeSignInPromiseRef.current;
+    if (inFlight) {
+      return inFlight;
+    }
+
+    // React StrictMode re-runs mount effects in development, so keep the
+    // OAuth callback completion idempotent while the exchange is in flight.
+    const nextPromise = (async () => {
+      const { accessToken: freshToken, returnPath } = await finishHfLogin();
+      await refreshSession(freshToken);
+      return returnPath;
+    })().finally(() => {
+      completeSignInPromiseRef.current = null;
+    });
+
+    completeSignInPromiseRef.current = nextPromise;
+    return nextPromise;
   }, [refreshSession]);
 
   const signOut = useCallback(() => {

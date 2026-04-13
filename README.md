@@ -35,7 +35,7 @@ Local preview convention:
 - The local site can point at a different backend by setting
   `VITE_SEEVOMAP_SPACE_URL` before starting the dev server or preview server.
 - Website sign-in now defaults to the public SeevoMap CIMD client id at
-  `https://internscience.github.io/SeevoMap-Home/.well-known/oauth-cimd`.
+  `https://internscience.github.io/SeevoMap-Home/.well-known/oauth-cimd.json`.
 - `VITE_SEEVOMAP_HF_CLIENT_ID` is now only an optional override if you want to
   point this deployment at a different Hugging Face OAuth app.
 
