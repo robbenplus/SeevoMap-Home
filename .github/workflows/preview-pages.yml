@@ -53,7 +53,7 @@ jobs:
           cd ../main-site
           npm ci
           npm run build
-          test -f dist/.well-known/oauth-cimd.json
+          test -f dist/.well-known/oauth-cimd.json || test -f dist/.well-known/oauth-cimd
           test -f dist/.nojekyll
           test -f dist/oauth/callback/huggingface/index.html
           test -f dist/generated/offline_quality_fixture.json
